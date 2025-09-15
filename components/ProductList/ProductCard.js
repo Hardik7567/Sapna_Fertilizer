@@ -1,43 +1,32 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function ProductCard() {
-  const [quantity, setQuantity] = useState(1);
-  const [selectedVariant, setSelectedVariant] = useState("250ml");
+export default function ProductCard(props) {
+  const { products } = props;
+  const [selectedVariant, setSelectedVariant] = useState(null);
   const [mainImage, setMainImage] = useState("/bottle.png");
-
-  const variants = [
-    { size: "250ml", price: 148, originalPrice: 225 },
-    { size: "500ml", price: 148, originalPrice: 225 },
-    { size: "1Ltr", price: 148, originalPrice: 225 },
-    { size: "5Ltr", price: 148, originalPrice: 225 },
-  ];
-
-  const images = [
-    "/product_image.png",
-    "/product_image.png",
-    "/product_image.png",
-    "/product_image.png",
-    "/product_image.png",
-  ];
-
+  const [quantity, setQuantity] = useState(1);
   const handleQuantityChange = (delta) => {
     setQuantity((prev) => Math.max(1, prev + delta));
   };
 
+  useEffect(() => {
+    setSelectedVariant(products?.variants?.[0] || null);
+  }, []);
   return (
     <div className="container mx-auto bg-white p-8 flex items-center gap-6">
       <div className="w-1/2 flex gap-4">
         <div className="flex flex-col gap-3">
-          {images.map((img, idx) => (
+          {products?.media.map((img, idx) => (
             <div
               key={idx}
-              className={`border flex justify-center items-center w-[86px] h-[86px] bg-[#F3F3F5] rounded-[12px] p-1 cursor-pointer ${mainImage === idx ? "border-[#003C22]" : "border-gray-200"
-                }`}
+              className={`border flex justify-center items-center w-[86px] h-[86px] bg-[#F3F3F5] rounded-[12px] p-1 cursor-pointer ${
+                mainImage === idx ? "border-[#003C22]" : "border-gray-200"
+              }`}
               onClick={() => setMainImage(img)}
             >
               <img
-                src={img}
+                src={"/product_image.png"}
                 alt="thumb"
                 className="w-14 h-14 object-contain"
               />
@@ -47,44 +36,52 @@ export default function ProductCard() {
 
         <div className="flex-1 flex justify-center w-[500px] h-[500px] items-center border border-[#E0E2E7] rounded-[12px] bg-[#F3F3F5] p-6">
           <img
-            src='/product_image.png'
+            src="/product_image.png"
             alt="Product"
             className="object-contain h-72"
           />
         </div>
       </div>
 
+      {}
       <div className="w-1/2">
-        <h2 className="text-2xl font-semibold">Roundup Herbicide</h2>
+        <h2 className="text-2xl font-semibold">
+          {products?.product_name || ""}
+        </h2>
         <p className="text-gray-600 mt-2 leading-relaxed font-medium text-[14px]">
-          Controls yield-robbing broadleaf, aquatic and grass weeds. Controls yield-robbing broadleaf, aquatic and grass wedds.
+          {products?.description || ""}
         </p>
 
         <div className="mt-4 text-2xl text-[#003C22] font-bold flex items-center gap-2">
-          ₹148{" "}
+          ₹{selectedVariant?.price * quantity || ""}
           <span className="text-gray-500 line-through text-sm">₹225</span>
         </div>
 
-        <p className="mt-1 text-sm text-gray-700"><span className="font-medium text-[#000]">Size: </span> 1 bottle (250ml)</p>
+        <p className="mt-1 text-sm text-gray-700">
+          <span className="font-medium text-[#000]">Size: </span>
+          {quantity} bottle ({selectedVariant?.size || ""}{" "}
+          {selectedVariant?.uom || ""})
+        </p>
 
         <hr className="my-6 text-[#E0E2E7]" />
 
         <div>
           <p className="font-semibold text-gray-800 mb-3">Variants</p>
           <div className="grid gap-4 flex-wrap grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {variants.map((variant) => {
-              const isSelected = selectedVariant === variant.size;
+            {(products?.variants || []).map((variant) => {
+              const isSelected = selectedVariant?.size === variant.size;
               return (
                 <div
                   key={variant.size}
-                  className={`flex flex-col justify-between border rounded-[12px] p-3 transition cursor-pointer ${isSelected
+                  className={`flex flex-col justify-between border rounded-[12px] p-3 transition cursor-pointer ${
+                    isSelected
                       ? "border-[#003C22] bg-[#E8F7F0]"
                       : "border-[#E0E2E7] bg-[#F3F3F5] hover:border-[#003C22]"
-                    }`}
-                  onClick={() => setSelectedVariant(variant.size)}
+                  }`}
+                  onClick={() => setSelectedVariant(variant)}
                 >
                   <p className="font-semibold text-center text-[17px] text-[#000]">
-                    {variant.size}
+                    {variant.size} {variant.uom}
                   </p>
 
                   <p className="text-center mt-1">
@@ -125,7 +122,6 @@ export default function ProductCard() {
               );
             })}
           </div>
-
         </div>
       </div>
     </div>
