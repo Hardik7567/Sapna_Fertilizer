@@ -137,11 +137,11 @@
 
 
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function ProductCard() {
-  const [quantity, setQuantity] = useState(1);
-  const [selectedVariant, setSelectedVariant] = useState("250ml");
+export default function ProductCard(props) {
+  const { products } = props;
+  const [selectedVariant, setSelectedVariant] = useState(null);
   const [mainImage, setMainImage] = useState("/bottle.png");
 
   const variants = [
@@ -164,6 +164,9 @@ export default function ProductCard() {
     setQuantity((prev) => Math.max(1, prev + delta));
   };
 
+  useEffect(() => {
+    setSelectedVariant(products?.variants?.[0] || null);
+  }, []);
   return (
     <div className="container mx-auto bg-white p-4 sm:p-6 lg:p-8 flex items-center flex-col lg:flex-row gap-6">
       <div className="w-full lg:w-1/2 flex flex-col lg:flex-row gap-4">
@@ -177,7 +180,7 @@ export default function ProductCard() {
               onClick={() => setMainImage(img)}
             >
               <img
-                src={img}
+                src={"/product_image.png"}
                 alt="thumb"
                 className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
               />
@@ -187,7 +190,7 @@ export default function ProductCard() {
 
         <div className="flex-1 flex justify-center items-center border border-[#E0E2E7] rounded-[12px] bg-[#F3F3F5] p-4 sm:p-6 min-h-[280px] sm:min-h-[400px] lg:min-h-[500px]">
           <img
-            src={mainImage}
+            src="/product_image.png"
             alt="Product"
             className="object-contain max-h-[250px] sm:max-h-[320px] lg:max-h-[400px]"
           />
