@@ -19,7 +19,18 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #ffffff;
+  color: #1d1d1d;
   font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+.product_div::-webkit-scrollbar {
+  width: 1px;
+}
+.product_div::-webkit-scrollbar-track {
+  background: transparent;
+}
+.product_div::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
