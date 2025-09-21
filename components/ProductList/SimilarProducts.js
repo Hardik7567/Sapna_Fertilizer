@@ -170,7 +170,7 @@ export default function SimilarProducts() {
 
   return (
     <div className='bg-[#FAFAFA]'>
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 md:px-0 py-10">
         <h2 className="text-xl font-semibold mb-6 text-center">
           Similar Products
         </h2>
@@ -209,7 +209,7 @@ export default function SimilarProducts() {
                     onChange={(e) =>
                       handleOptionChange(product.id, e.target.value)
                     }
-                    className="border border-[#003C22] min-h-[36px] appearance-none rounded-full px-3 pe-8 py-1 text-[15px] font-semibold focus:ring-1 focus:ring-green-600"
+                    className="border cursor-pointer border-[#003C22] min-h-[36px] appearance-none rounded-full px-3 pe-8 py-1 text-[15px] font-semibold focus:ring-1 focus:ring-green-600"
                   >
                     {product.options.map((option) => (
                       <option key={option}>{option}</option>
@@ -218,7 +218,7 @@ export default function SimilarProducts() {
                   <SelectDownSvg />
                 </div>
 
-                <button className="bg-[#003C22] text-white text-[14px] font-semibold px-[12px] py-[6px] min-h-[36px] rounded-[12px] hover:bg-green-900 transition">
+                <button className="bg-[#003C22] cursor-pointer text-white text-[14px] font-semibold px-[12px] py-[6px] min-h-[36px] rounded-[12px] hover:bg-green-900 transition">
                   Buy
                 </button>
               </div>

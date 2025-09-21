@@ -83,7 +83,7 @@ import SearchIcon from "../SvgIcons/SearchIcon";
 export default function Footer() {
   return (
     <footer className="bg-[#003C22] text-white py-12 relative overflow-hidden">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 px-4">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 px-4 md:px-0">
         <div className="md:pr-10">
           <FooterLogoIcon />
 

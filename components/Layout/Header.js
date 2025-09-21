@@ -122,7 +122,7 @@ export default function Header() {
             </p>
           </div>
 
-          <button className="hidden md:flex bg-[#FD820B] text-white px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium items-center gap-2 hover:bg-orange-700 shadow">
+          <button className="hidden md:flex cursor-pointer bg-[#FD820B] text-white px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium items-center gap-2 hover:bg-orange-700 shadow">
             Call to Order <img src="/call.svg" alt="call-icon" />{" "}
             <span>+91 70431 12918</span>
           </button>
@@ -155,7 +155,7 @@ export default function Header() {
               <select
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
-                className="border text-[14px] md:text-[15px] font-medium px-3 md:px-4 md:pr-8 rounded-[10px] pe-8 py-1.5 md:py-2 appearance-none border-[#003C22]"
+                className="border text-[14px] md:text-[15px] font-medium px-3 md:px-4 md:pr-8 rounded-[10px] pe-8 cursor-pointer py-1.5 md:py-2 appearance-none border-[#003C22]"
               >
                 <option>English</option>
                 <option>Hindi</option>

@@ -168,14 +168,14 @@ export default function ProductCard() {
 
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="container mx-auto p-4 sm:p-6 lg:p-8 flex items-center flex-col lg:flex-row gap-6">
+      <div className="container mx-auto p-4 sm:py-6 lg:py-8 flex items-center flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-1/2 flex flex-col lg:flex-row gap-4">
 
-          <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-y-auto lg:h-[500px] pb-2 lg:pb-0">
+          <div className="flex lg:flex-col product_div gap-3 overflow-x-auto lg:overflow-y-auto lg:h-[500px] pb-2 lg:pb-0">
             {images.map((img, idx) => (
               <div
                 key={idx}
-                className={`border flex-shrink-0 flex justify-center items-center w-[70px] h-[70px] sm:w-[86px] sm:h-[86px] bg-[#F3F3F5] rounded-[12px] p-1 cursor-pointer ${mainImage === img ? "border-[#003C22]" : "border-gray-200"
+                className={`border flex-shrink-0 flex bg-[#fff] justify-center items-center w-[70px] h-[70px] sm:w-[86px] sm:h-[86px]  rounded-[12px] p-1 cursor-pointer ${mainImage === img ? "border-[#003C22]" : "border-gray-200"
                   }`}
                 onClick={() => setMainImage(img)}
               >
@@ -267,7 +267,7 @@ export default function ProductCard() {
                           </div>
                         </div>
                       ) : (
-                        <button className="bg-[#003C22] text-white p-[8.5px] min-h-[36px]  rounded-[12px] text-[13px] sm:text-[14px] font-semibold w-full hover:bg-green-800 transition">
+                        <button className="bg-[#003C22] cursor-pointer text-white p-[8.5px] min-h-[36px]  rounded-[12px] text-[13px] sm:text-[14px] font-semibold w-full hover:bg-green-800 transition">
                           Add to Bag
                         </button>
                       )}
