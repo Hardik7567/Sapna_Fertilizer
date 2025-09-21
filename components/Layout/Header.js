@@ -136,16 +136,17 @@ export default function Header() {
             <LogoIcon />
           </div>
 
-
-          <div className="flex-1 mx-4 md:mx-8 relative hidden sm:block">
-            <button className="absolute bg-[#fff] left-1 top-0 bottom-0 m-auto w-[40px] h-[40px] flex justify-center items-center rounded-full">
-              <SearchIcon className="text-gray-500" />
-            </button>
-            <input
-              type="text"
-              placeholder="Search your product, category or brands"
-              className="w-full lg:w-[470px] min-h-[46px] pl-[48px] pr-4 py-2 bg-[#F3F3F5] border border-[#E0E2E7] text-[#4D4D4D] placeholder-[#4D4D4D] rounded-full text-[14px] font-medium focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
+          <div className="">
+            <div className="flex-1 mx-4 md:mx-8 relative hidden sm:block">
+              <button className="absolute bg-[#fff] left-1 top-0 bottom-0 m-auto w-[40px] h-[40px] flex justify-center items-center rounded-full">
+                <SearchIcon className="text-gray-500" />
+              </button>
+              <input
+                type="text"
+                placeholder="Search your product, category or brands"
+                className="w-full lg:w-[470px] min-h-[46px] pl-[48px] pr-4 py-2 bg-[#F3F3F5] border border-[#E0E2E7] text-[#4D4D4D] placeholder-[#4D4D4D] rounded-full text-[14px] font-medium focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+            </div>
           </div>
 
 
