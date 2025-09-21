@@ -5,7 +5,7 @@ export default function LayoutMain({children}) {
   return (
     <div>
       <Header />
-      <div>{children}</div>
+      <div className='pt-[181px]'>{children}</div>
       <Footer />
     </div>
   )

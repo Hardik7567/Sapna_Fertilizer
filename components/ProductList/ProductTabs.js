@@ -225,11 +225,11 @@ export default function ProductTabs() {
   ];
 
   return (
-    <div className="py-10 px-4 sm:px-6 lg:px-8 border-t border-[#E0E2E7] mt-8">
+    <div className="py-10 px-4 sm:px-6 lg:px-8 md:pt-18 bg-[#FAFAFA] border-t border-[#E0E2E7]">
       <div className="container mx-auto">
-        <div className="bg-white rounded-[16px] shadow-sm">
+        <div className="rounded-[16px]">
           <div className="mb-6">
-            <nav className="flex md:justify-center overflow-x-auto gap-2 border border-[#E0E2E7] py-2 px-2 rounded-[12px] scrollbar-hide">
+            <nav className="flex md:justify-center md:w-fit md:mx-auto overflow-x-auto gap-2 border border-[#E0E2E7] py-2 px-2 rounded-[12px] scrollbar-hide">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -245,7 +245,7 @@ export default function ProductTabs() {
             </nav>
           </div>
 
-          <div className="p-5 sm:p-7 bg-white border border-[#E0E2E7] rounded-[12px]">
+          <div className="p-5 sm:p-7 bg-[#fff] border border-[#E0E2E7] rounded-[12px]">
             {activeTab === "details" && <DetailsTab />}
             {activeTab === "specification" && <SpecificationsTab />}
             {activeTab === "how-to-use" && <HowToUseTab />}

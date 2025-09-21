@@ -75,6 +75,7 @@
 // }
 
 
+import FooterBackSvg from "../SvgIcons/FooterBackSvg";
 import FooterCallSvg from "../SvgIcons/FooterCallSvg";
 import FooterLogoIcon from "../SvgIcons/FooterLogoIcon";
 import SearchIcon from "../SvgIcons/SearchIcon";
@@ -91,20 +92,20 @@ export default function Footer() {
             Winter-wise Farming: Curated for Crops, Carefully Chosen for You.
           </p>
 
-          <div className="relative w-full mt-4">
+          <div className="relative w-full mt-4 mb-4">
             <input
               type="text"
               placeholder="Enter phone number for daily updates"
               className="min-h-[46px] w-full pr-[52px] pl-4 py-2 bg-[#fff] border border-[#E0E2E7] text-[#4D4D4D] placeholder-[#4D4D4D] rounded-full text-[14px] font-medium focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <button className="absolute right-1 top-0 bottom-0 m-auto w-[40px] h-[40px] flex justify-center items-center bg-[#FFEB6D] rounded-full">
-              <SearchIcon className="text-gray-600 w-5 h-5" />
+              <FooterBackSvg />
             </button>
           </div>
         </div>
 
         <div>
-          <h3 className="text-[18px] font-semibold mb-4">Quick Links</h3>
+          <h3 className="text-[18px] font-semibold mb-8">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <a href="#" className="text-[15px] font-medium hover:underline">
@@ -125,7 +126,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-[18px] font-semibold mb-4">Categories</h3>
+          <h3 className="text-[18px] font-semibold mb-8">Categories</h3>
           <ul className="space-y-2 text-sm">
             <li className="text-[15px] font-medium">Fungicide</li>
             <li className="text-[15px] font-medium">Herbicide</li>
@@ -137,7 +138,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-[18px] font-semibold mb-4">Contact Details</h3>
+          <h3 className="text-[18px] font-semibold mb-8">Contact Details</h3>
           <div className="flex items-center gap-4">
             <FooterCallSvg />
             <div>
@@ -149,12 +150,12 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="border-[#fff]/40 border-t mt-10 pt-6 text-[14px] md:text-[15px] font-medium text-center md:text-left">
+        <div className="border-[#fff]/40 border-t mt-12 pt-10 text-[14px] md:text-[15px] font-medium text-center md:text-left">
           ©2024 Sapna Fertilizers Pvt Ltd
         </div>
       </div>
 
-      <div className="absolute right-0 bottom-0 w-[140px] md:w-auto opacity-80 pointer-events-none">
+      <div className="absolute right-0 bottom-0 w-[140px] md:w-auto pointer-events-none">
         <img src="/1.png" alt="footer_bg" className="w-full h-auto object-contain" />
       </div>
     </footer>
